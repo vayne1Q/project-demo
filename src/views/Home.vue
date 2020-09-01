@@ -1,18 +1,29 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="box">{{ $store.state.number }}</div>
+    <button @click="add">按钮</button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   name: "Home",
-  components: {
-    HelloWorld
+  components: {},
+  mounted() {
+    console.log(123);
+  },
+  methods: {
+    add() {
+      this.$store.commit("addNumber", 10);
+    }
   }
 };
 </script>
+<style>
+.box {
+  box-sizing: border-box;
+  width: 750px;
+  height: 300px;
+  border: solid 1px black;
+}
+</style>
